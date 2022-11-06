@@ -1,72 +1,73 @@
-from random import randint
+# Operations on a sequence of numbers
 
+# Stage #11 (General task)
+# Subject theme: Python Basic Syntax. High Level Data Types. Lists
+# Author: Irtikeeva Tatiana
+# Company: IT Academy Step
+# Date: 05.11.2022
 
-def find_arithmetic_mean(list):
-    sum = 0
-    i = len(list) - 1
+def find_arithmetic_mean(ls):
+    summ = 0
+    i = len(ls) - 1
     while i >= 0:
-        sum += list[i]
+        summ += ls[i]
         i -= 1
 
-    return round(sum / len(list), 2)
+    return round(summ / len(ls), 2)
 
 
-def count_positive_value(list):
-    i = len(list) - 1
+def count_positive_value(ls):
+    i = len(ls) - 1
     count = 0
     while i >= 0:
-        if list[i] > 0:
+        if ls[i] > 0:
             count += 1
         i -= 1
 
     return count
 
 
-def count_negative_value(list):
-    i = len(list) - 1
+def count_negative_value(ls):
+    i = len(ls) - 1
     count = 0
     while i >= 0:
-        if list[i] < 0:
+        if ls[i] < 0:
             count += 1
         i -= 1
 
     return count
 
 
-def count_zero_value(list):
-    i = len(list) - 1
+def count_zero_value(ls):
+    i = len(ls) - 1
     count = 0
     while i >= 0:
-        if list[i] == 0:
+        if ls[i] == 0:
             count += 1
         i -= 1
 
     return count
 
 
-def swap_extreme_value(list):
-    max_i = list.index(max(list))
-    min_i = list.index(min(list))
-    list[max_i], list[min_i] = list[min_i], list[max_i]
+def swap_extreme_value(ls):
+    max_i = ls.index(max(ls))
+    min_i = ls.index(min(ls))
+    ls[max_i], ls[min_i] = ls[min_i], ls[max_i]
 
-    return list
+    return ls
 
 
 def main():
-    list = []
-    num_list_elements = int(input(f"Input number of list elements: "))
+    ls = list(map(int, list(input(f"Enter values separated by spaces: ").split())))
 
-    for i in range(num_list_elements):
-        list.append(randint(-100, 100))
-
-    print(f"Your list before changes:       {list}")
-    print(f"After replacing extreme values: {swap_extreme_value(list)}")
-    print(f"Max --> {max(list)}")
-    print(f"Min --> {min(list)}")
-    print(f"Arithmetic mean --> {find_arithmetic_mean(list)}")
-    print(f"Number of positive elements is {count_positive_value(list)}")
-    print(f"Number of negative elements is {count_negative_value(list)}")
-    print(f"Number of zero elements is {count_zero_value(list)}")
+    print(f"Your list before changes:       {ls}")
+    print(f"After replacing extreme values: {swap_extreme_value(ls)}")
+    print(f"Max --> {max(ls)}")
+    print(f"Min --> {min(ls)}")
+    print(f"Arithmetic mean --> {find_arithmetic_mean(ls)}")
+    print(f"Number of positive elements is {count_positive_value(ls)}")
+    print(f"Number of negative elements is {count_negative_value(ls)}")
+    print(f"Number of zero elements is {count_zero_value(ls)}")
 
 
 main()

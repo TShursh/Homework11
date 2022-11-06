@@ -1,33 +1,34 @@
-def check_sorting_ascending(list):
-    i = len(list) - 1
+# Sorting vector elements
+
+# Stage #11 (Main task 01)
+# Subject theme: Python Basic Syntax. High Level Data Types. Lists
+# Author: Irtikeeva Tatiana
+# Company: IT Academy Step
+# Date: 06.11.2022
+def check_sorting_ascending(ls):
+    i = len(ls) - 1
     while i > 0:
-        if list[i] <= list[i - 1]:
+        if ls[i] <= ls[i - 1]:
             return False
         i -= 1
     return True
 
 
-def check_sorting_descending(list):
-    i = len(list) - 1
+def check_sorting_descending(ls):
+    i = len(ls) - 1
     while i > 0:
-        if list[i] >= list[i - 1]:
+        if ls[i] >= ls[i - 1]:
             return False
         i -= 1
     return True
 
 
 def main():
-    list = []
-    num_list_elements = int(input(f"Input number of list elements: "))
+    ls = list(map(int, list(input(f"Enter vector elements separated by spaces: ").split())))
 
-    for _ in range(num_list_elements):
-        list.append(int(input(f"Input element of list: ")))
-
-    print(f"Your vector: {list}")
-
-    if check_sorting_ascending(list):
+    if check_sorting_ascending(ls):
         msg = f"The elements of the vector are sorted in ascending order."
-    elif check_sorting_descending(list):
+    elif check_sorting_descending(ls):
         msg = f"The elements of the vector are sorted in descending order."
     else:
         msg = f"Vector elements do not form a sequence."

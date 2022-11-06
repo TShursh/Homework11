@@ -1,22 +1,25 @@
-def check_specularity(list):
-    while len(list) != 0:
-        if list[0] != list[len(list) - 1]:
+# Specularity vector elements
+
+# Stage #11 (Main task 02)
+# Subject theme: Python Basic Syntax. High Level Data Types. Lists
+# Author: Irtikeeva Tatiana
+# Company: IT Academy Step
+# Date: 06.11.2022
+def check_specularity(ls):
+    while len(ls) != 0:
+        if ls[0] != ls[len(ls) - 1]:
             return False
-        list = list[1:len(list) - 1]
+        ls = ls[1:len(ls) - 1]
 
     return True
 
 
 def main():
-    list = []
-    num_list_elements = int(input(f"Input number of list elements: "))
+    ls = list(map(int, list(input(f"Enter vector elements separated by spaces: ").split())))
 
-    for _ in range(num_list_elements):
-        list.append(int(input(f"Input element of list: ")))
+    print(f"Your vector: {ls}")
 
-    print(f"Your vector: {list}")
-
-    msg = (f"Vector elements are mirrored." if check_specularity(list)
+    msg = (f"Vector elements are mirrored." if check_specularity(ls)
            else f"Vector elements are not mirrored.")
 
     print(msg)
